@@ -1,0 +1,30 @@
+[
+  {
+    "model": "Baseline (no fix)",
+    "female_recall": 62.0,
+    "male_recall": 85.8,
+    "gap": 23.8,
+    "accuracy": 80.3
+  },
+  {
+    "model": "Reweighting (pre)",
+    "female_recall": 66.0,
+    "male_recall": 85.4,
+    "gap": 19.4,
+    "accuracy": 80.0
+  },
+  {
+    "model": "Exponentiated Gradient (in)",
+    "female_recall": 76.0,
+    "male_recall": 80.6,
+    "gap": 4.6,
+    "accuracy": 77.6
+  },
+  {
+    "model": "Threshold Optimizer (post)",
+    "female_recall": 76.0,
+    "male_recall": 79.3,
+    "gap": 3.3,
+    "accuracy": 77.7
+  }
+]
