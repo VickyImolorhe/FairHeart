@@ -106,15 +106,21 @@ st.sidebar.caption(f"Role: {role}")
 authenticator.logout("Log out", "sidebar")
 
 # ---------- load models ----------
-features = joblib.load("feature_names.joblib")
-results = pd.read_json("results.json")
-MODELS = {
-    "Baseline (no fix)":           joblib.load("model_baseline.joblib"),
-    "Reweighting (pre)":           joblib.load("model_reweight.joblib"),
-    "Exponentiated Gradient (in)": joblib.load("model_expgrad.joblib"),
-    "Threshold Optimizer (post)":  joblib.load("model_threshold.joblib"),
-}
+@st.cache_resource
+def load_everything():
+    features = joblib.load("feature_names.joblib")
+    results = pd.read_json("results.json")
+    models = {
+        "Baseline (no fix)":           joblib.load("model_baseline.joblib"),
+        "Reweighting (pre)":           joblib.load("model_reweight.joblib"),
+        "Exponentiated Gradient (in)": joblib.load("model_expgrad.joblib"),
+        "Threshold Optimizer (post)":  joblib.load("model_threshold.joblib"),
+    }
+    return features, results, models
+features, results, MODELS = load_everything()
 PROB_MODELS = ["Baseline (no fix)", "Reweighting (pre)"]
+
+features, results, MODELS = load_everything()
 
 # ---------- header ----------
 st.title("Fair Heart")
