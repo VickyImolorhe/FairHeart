@@ -188,7 +188,7 @@ with tabs[0]:
         if f_kind == "prob":
             gap = abs(m_val - f_val)
             if gap >= 10:
-                st.error(f"Changing only the sex shifts the risk by {gap:.1f} points — bias.")
+      
             elif gap >= 3:
                 st.warning(f"Sex-only difference: {gap:.1f} points.")
             else:
