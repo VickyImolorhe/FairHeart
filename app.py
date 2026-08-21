@@ -187,7 +187,7 @@ with tabs[0]:
         c2.metric("Same patient as Male",   show_value(m_kind, m_val))
         if f_kind == "prob":
             gap = abs(m_val - f_val)
-           if gap >= 10:
+            if gap >= 10:
                 st.error(f"With all other details identical, this patient's risk differs by {gap:.1f} points "
              f"between female and male — a sign of sex bias.")
             elif gap >= 3:
